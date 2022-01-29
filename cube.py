@@ -1,6 +1,6 @@
-from tools import log
 import copy
 import random
+from termcolor import colored
 
 
 class Cube:
@@ -170,18 +170,18 @@ class Cube:
 
         for up_row in reversed(up_side):
             args_up = [[sign, colors[color]] for color in up_row]
-            log(tab, *args_up, separator=cubie_separator)
+            self.print_row(tab, *args_up, separator=cubie_separator)
 
         for left_row, front__row, right_row, back_row in zip(left_side, front_side, right_side, back_side):
             args_left = [[sign, colors[color]] for color in reversed(left_row)]
             args_front = [[sign, colors[color]] for color in front__row]
             args_right = [[sign, colors[color]] for color in right_row]
             args_back = [[sign, colors[color]] for color in reversed(back_row)]
-            log(*args_left, '', *args_front, '', *args_right, '', *args_back, separator=cubie_separator)
+            self.print_row(*args_left, '', *args_front, '', *args_right, '', *args_back, separator=cubie_separator)
 
         for down_row in down_side:
             args_down = [[sign, colors[color]] for color in down_row]
-            log(tab, *args_down, separator=cubie_separator)
+            self.print_row(tab, *args_down, separator=cubie_separator)
 
     @property
     def is_solved(self) -> bool:
@@ -222,3 +222,31 @@ class Cube:
                 self.show()
             moves.append(move)
         return moves
+
+    @staticmethod
+    def print_row(*args, **kwargs) -> None:
+        args_ = []
+
+        separator = ''
+        color = None
+
+        if 'separator' in kwargs:
+            separator = kwargs['separator']
+        if 'color' in kwargs:
+            color = kwargs['color']
+
+        for i, arg in enumerate(args):
+            if i == len(args) - 1:
+                separator = ''
+            if hasattr(arg, '__len__') and type(arg) is not str:
+                if len(arg) > 1 and type(arg) is not str:
+                    args_.append([f'{arg[0]}{separator}', arg[1]])
+                elif len(arg) > 0 and type(arg) is not str:
+                    args_.append([f'{arg[0]}{separator}', color])
+            else:
+                args_.append([f'{arg}{separator}', color])
+        rv = ''
+
+        for arg in args_:
+            rv += colored((str(arg[0])), arg[1])
+        print(rv)

@@ -4,7 +4,7 @@
 
 ## How to use
 
-In <a href="example.py">example.py</a> is shown example usage cube.py
+In <a href="example.py">example.py</a> is shown example usage of <a href="cube.py">cube.py</a>
 
 ```
 from cube import Cube
