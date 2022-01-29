@@ -1,4 +1,4 @@
-from tools import log, timer
+from tools import log
 import copy
 import random
 
@@ -16,7 +16,7 @@ class Cube:
         :param size: Size of the cube.
         :return: Cube list.
         """
-        cube = []
+        cube = list()
         for i in range(size):
             layer = []
             for j in range(size):
@@ -182,7 +182,6 @@ class Cube:
         for down_row in down_side:
             args_down = [[sign, colors[color]] for color in down_row]
             log(tab, *args_down, separator=cubie_separator)
-        print('========================================================')
 
     @property
     def is_solved(self) -> bool:
@@ -208,13 +207,12 @@ class Cube:
                                 solved = False
         return solved
 
-    @timer
     def random_moves(self, num: int, show: bool = False) -> list:
         """
         Executes specified number of random moves on cube.
         :param num: Number of moves to execute.
-        :param show: True: display cube in console every move
-        :return: List of executed moves
+        :param show: True: display cube in console every move.
+        :return: List of executed moves.
         """
         moves = []
         for _ in range(num):
@@ -224,24 +222,3 @@ class Cube:
                 self.show()
             moves.append(move)
         return moves
-
-
-def main():
-    cube = Cube(3)
-
-    # cube.move('X', 1, 0, qty=2, show=True)
-    cube.move('Y', 0, 0, qty=1, show=True)
-    # cube.move('Z', 1, 1, qty=2, show=True)
-    #
-    # cube.move('Z', 1, 0, qty=2, show=True)
-    # cube.move('Y', 1, 1, qty=2, show=True)
-    # cube.move('X', 1, 1, qty=2, show=True)
-
-    print(cube.is_solved)
-
-    cube.random_moves(100)
-    cube.show()
-
-
-if __name__ == '__main__':
-    main()

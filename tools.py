@@ -2,6 +2,7 @@ import datetime
 from termcolor import colored
 import time
 
+
 def timer(f):
     def wrapper(*args, **kwargs):
         start = time.perf_counter()
@@ -71,8 +72,10 @@ def getTime():
     # return str(day) + "." + str(month) + "." + str(year) + " " + str(hour) + ":" + str(minute) + ":" + str(second)
     return f'{day}.{month}.{year} {hour}:{minute}:{second}'
 
+
 def log(*args, **kwargs):
     print(getLog(*args, **kwargs))
+
 
 def getLog(*args, **kwargs):
     args_ = []
