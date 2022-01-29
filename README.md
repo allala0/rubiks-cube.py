@@ -56,8 +56,8 @@ if __name__ == '__main__':
 ## TODO
 
 - [x] **Working rubiks cube of any size displayed in terminal**
-- [] **AI solver**
-- [] **3D visualisation**
+- [ ] **AI solver**
+- [ ] **3D visualisation**
 
 ## License
 
