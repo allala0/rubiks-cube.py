@@ -22,75 +22,75 @@ class Cube:
             for j in range(size):
                 row = []
                 for k in range(size):
-                    r = [1, 2, 3, 4, 5, 6]
+                    cubie = [1, 2, 3, 4, 5, 6]
                     #INSIDE
                     if 0 < i < size - 1 and 0 < j < size - 1 and 0 < k < size - 1:
-                        r = [0 for _ in range(6)]
+                        cubie = [0 for _ in range(6)]
                     #CORNERS
                     #up
                     elif i is 0 and j is 0 and k is 0:
-                        r[2], r[3], r[4] = 0, 0, 0
+                        cubie[2], cubie[3], cubie[4] = 0, 0, 0
                     elif i is 0 and j is 0 and k is size - 1:
-                        r[0], r[2], r[4] = 0, 0, 0
+                        cubie[0], cubie[2], cubie[4] = 0, 0, 0
                     elif i is 0 and j is size - 1 and k is 0:
-                        r[1], r[2], r[3] = 0, 0, 0
+                        cubie[1], cubie[2], cubie[3] = 0, 0, 0
                     elif i is 0 and j is size - 1 and k is size - 1:
-                        r[0], r[1], r[2] = 0, 0, 0
+                        cubie[0], cubie[1], cubie[2] = 0, 0, 0
                     #down
                     elif i is size - 1 and j is 0 and k is 0:
-                        r[3], r[4], r[5] = 0, 0, 0
+                        cubie[3], cubie[4], cubie[5] = 0, 0, 0
                     elif i is size - 1 and j is 0 and k is size - 1:
-                        r[0], r[4], r[5] = 0, 0, 0
+                        cubie[0], cubie[4], cubie[5] = 0, 0, 0
                     elif i is size - 1 and j is size - 1 and k is 0:
-                        r[1], r[3], r[5] = 0, 0, 0
+                        cubie[1], cubie[3], cubie[5] = 0, 0, 0
                     elif i is size - 1 and j is size - 1 and k is size - 1:
-                        r[0], r[1], r[5] = 0, 0, 0
+                        cubie[0], cubie[1], cubie[5] = 0, 0, 0
                     #EDGES
                     #up
                     elif i is 0 and j is 0 and 0 < k < size - 1:
-                        r[0], r[2], r[3], r[4] = 0, 0, 0, 0
+                        cubie[0], cubie[2], cubie[3], cubie[4] = 0, 0, 0, 0
                     elif i is 0 and j is size - 1 and 0 < k < size - 1:
-                        r[0], r[1], r[2], r[3] = 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[2], cubie[3] = 0, 0, 0, 0
                     elif i is 0 and 0 < j < size - 1 and k is 0:
-                        r[1], r[2], r[3], r[4] = 0, 0, 0, 0
+                        cubie[1], cubie[2], cubie[3], cubie[4] = 0, 0, 0, 0
                     elif i is 0 and 0 < j < size - 1 and k is size - 1:
-                        r[0], r[1], r[2], r[4] = 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[2], cubie[4] = 0, 0, 0, 0
                     #middle
                     elif 0 < i < size - 1 and j is 0 and k is 0:
-                        r[2], r[3], r[4], r[5] = 0, 0, 0, 0
+                        cubie[2], cubie[3], cubie[4], cubie[5] = 0, 0, 0, 0
                     elif 0 < i < size -1 and j is 0 and k is size - 1:
-                        r[0], r[2], r[4], r[5] = 0, 0, 0, 0
+                        cubie[0], cubie[2], cubie[4], cubie[5] = 0, 0, 0, 0
                     elif 0 < i < size - 1 and j is size - 1 and k is 0:
-                        r[1], r[2], r[3], r[5] = 0, 0, 0, 0
+                        cubie[1], cubie[2], cubie[3], cubie[5] = 0, 0, 0, 0
                     elif 0 < i < size -1 and j is size - 1 and k is size - 1:
-                        r[0], r[1], r[2], r[5] = 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[2], cubie[5] = 0, 0, 0, 0
                     #down
                     elif i is size - 1 and j is 0 and 0 < k < size - 1:
-                        r[0], r[3], r[4], r[5] = 0, 0, 0, 0
+                        cubie[0], cubie[3], cubie[4], cubie[5] = 0, 0, 0, 0
                     elif i is size - 1 and j is size - 1 and 0 < k < size - 1:
-                        r[0], r[1], r[3], r[5] = 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[3], cubie[5] = 0, 0, 0, 0
                     elif i is size - 1 and 0 < j < size - 1 and k is 0:
-                        r[1], r[3], r[4], r[5] = 0, 0, 0, 0
+                        cubie[1], cubie[3], cubie[4], cubie[5] = 0, 0, 0, 0
                     elif i is size - 1 and 0 < j < size - 1 and k is size - 1:
-                        r[0], r[1], r[4], r[5] = 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[4], cubie[5] = 0, 0, 0, 0
                     #CENTERS
                     #up
                     elif i is 0 and 0 < j < size - 1 and 0 < k < size - 1:
-                        r[0], r[1], r[2], r[3], r[4] = 0, 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[2], cubie[3], cubie[4] = 0, 0, 0, 0, 0
                     #middle
                     elif 0 < i < size - 1 and 0 < j < size - 1 and k is 0:
-                        r[1], r[2], r[3], r[4], r[5] = 0, 0, 0, 0, 0
+                        cubie[1], cubie[2], cubie[3], cubie[4], cubie[5] = 0, 0, 0, 0, 0
                     elif 0 < i < size - 1 and 0 < j < size - 1 and k is size - 1:
-                        r[0], r[1], r[2], r[4], r[5] = 0, 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[2], cubie[4], cubie[5] = 0, 0, 0, 0, 0
                     elif 0 < i < size - 1 and j is 0 and 0 < k < size - 1:
-                        r[0], r[2], r[3], r[4], r[5] = 0, 0, 0, 0, 0
+                        cubie[0], cubie[2], cubie[3], cubie[4], cubie[5] = 0, 0, 0, 0, 0
                     elif 0 < i < size - 1 and j is size - 1 and 0 < k < size - 1:
-                        r[0], r[1], r[2], r[3], r[5] = 0, 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[2], cubie[3], cubie[5] = 0, 0, 0, 0, 0
                     # down
                     elif i is size - 1 and 0 < j < size - 1 and 0 < k < size - 1:
-                        r[0], r[1], r[3], r[4], r[5] = 0, 0, 0, 0, 0
+                        cubie[0], cubie[1], cubie[3], cubie[4], cubie[5] = 0, 0, 0, 0, 0
 
-                    row.append(r)
+                    row.append(cubie)
                 layer.append(row)
             cube.append(layer)
         return cube
